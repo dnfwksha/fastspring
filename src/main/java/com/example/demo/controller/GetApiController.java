@@ -42,9 +42,9 @@ public class GetApiController {
             @RequestParam String email,
             @RequestParam int age
     ){
-        System.out.println();
-        System.out.println();
-        System.out.println();
+        System.out.println(name);
+        System.out.println(email);
+        System.out.println(age);
 
         return name+" "+email+" "+age;
     }
