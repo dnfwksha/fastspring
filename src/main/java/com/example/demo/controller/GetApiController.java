@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.UserRequest;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -24,7 +25,7 @@ public class GetApiController {
         return Pathname;
     }
 
-    //localhost:9090/api/get/query-param
+    //localhost:9091/api/get/query-param
     @PostMapping(path = "query-param")
     public String queryParam(Map<String, String> queryParam) {
         queryParam.entrySet().forEach(entry -> {
@@ -35,7 +36,7 @@ public class GetApiController {
 
         return "";
     }
-
+    //localhost:9091/api/get/query-param02
     @GetMapping("query-param02")
     public String queryParam02(
             @RequestParam String name,
@@ -47,5 +48,15 @@ public class GetApiController {
         System.out.println(age);
 
         return name+" "+email+" "+age;
+    }
+
+    //localhost:9091/api/get/query-param03
+    @GetMapping("query-param03")
+    public String queryParam03(UserRequest userRequest){
+        System.out.println(userRequest.getName());
+        System.out.println(userRequest.getEmail());
+        System.out.println(userRequest.getAge());
+
+        return userRequest.toString();
     }
 }
